@@ -1,0 +1,27 @@
+#! /bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+echo '********* xcode'
+./xcode
+
+echo '********* homebrew'
+./homebrew
+
+echo '********* AppStore'
+./AppStore
+
+echo '********* java'
+./java
+
+echo '********* ruby'
+./ruby
+
+echo '********* manual'
+./manual
+
+echo '********* done!'
+

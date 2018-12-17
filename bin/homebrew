@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+function install_command() {
+  if [ ! `command -v $1` ] ; then
+    echo "Installing $1"
+    brew install $1 
+  else
+    echo "Already installed: $1"
+  fi
+}
+
+function install_app() {
+  if [ ! -e "$1" ] ; then
+    echo "Installing $1 via $2"
+    brew install $2 
+  else
+    echo "Already installed: $2"
+  fi
+}
+
+function cask_install() {
+  if [ ! `command -v $1` ] ; then
+    echo "Installing $1 via cask $2"
+    brew cask install $2
+  else
+    echo "Already installed: $1"
+  fi
+}
+
+function cask_install_app() {
+  if [ ! -e "$1" ] ; then
+    echo "Installing $1 via cask $2"
+    brew cask install $2
+  else
+    echo "Already installed: $1"
+  fi
+}
+# Homebrew itself
+if [ ! `command -v brew` ] ; then
+  echo "Installing Homebrew, please follow prompts"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  echo "Tapping cask"
+  brew tap caskroom/cask
+else 
+  echo "Homebrew already installed"
+fi
+
+echo
+
+install_command cloc 
+install_command jq 
+install_app /Applications/MacVim.app macvim
+
+install_command tree 
+install_command wget 
+
+cask_install pdflatex mactex
+
+
+

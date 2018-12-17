@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+if [ ! `command -v sdk` ] ; then
+   echo 'installing SDKMAN'
+   curl -s "https://get.sdkman.io" | bash
+   source "/Users/eric.johnson/.sdkman/bin/sdkman-init.sh"
+   # TODO: need to update .bashrc
+   echo "REMEMBER TO UPDATE BASHRC TO CALL .sdkman/bin/sdkman-init.sh"
+fi
+
+sdk install java 11.0.1-open
+sdk install java 8.0.191-oracle
+sdk install gradle 4.10.2
+sdk install groovy 2.4.7
+

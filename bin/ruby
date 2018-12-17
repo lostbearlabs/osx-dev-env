@@ -1,0 +1,18 @@
+#! /usr/bin/env bash --login
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+# see: https://jdk.java.net/11/
+
+if [ ! `command -v rvm` ] ; then
+   echo 'installing rvm, please follow prompts'
+   curl -sSL https://get.rvm.io | bash -s stable --ruby
+else
+   echo 'rvm already installed'
+fi
+
+rvm install ruby-2.4.1
+rvm --default use ruby-2.4.1
+

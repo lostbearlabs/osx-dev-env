@@ -1,0 +1,29 @@
+#! /usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+function check() {
+   if [ ! -e "$1" ] ; then
+      echo "Missing: $1"
+      open "$2"
+   else
+      echo "Already installed: $1"
+   fi
+}
+
+check '/Applications/paw.app' https://paw.cloud
+check '/Applications/iTerm.app' https://www.iterm2.com
+check '/Applications/Alfred 3.app' https://www.alfredapp.com
+check '/Applications/CleanMyMac X.app' https://macpaw.com/cleanmymac
+check '/Applications/Kaleidoscope.app' https://www.kaleidoscopeapp.com
+check '/Applications/TLA+ Toolbox.app' https://lamport.azurewebsites.net/tla/toolbox.html
+check '/Applications/JetBrains Toolbox.app' https://www.jetbrains.com/toolbox/
+check '/Applications/VMWare Fusion.app' https://my.vmware.com/
+ 
+ 
+ 
+
+
