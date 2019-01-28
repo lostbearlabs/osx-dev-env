@@ -61,5 +61,18 @@ install_command wget
 
 cask_install pdflatex mactex
 
+if [ ! -d /usr/local/bin/bash ]; then
+   install_command bash
+fi
+
+if grep -q "/usr/local/Cellar/bash" /etc/shells
+then
+   echo "found homebrew bash in /etc/shells"
+else
+   echo "BE SURE TO ADD BASH TO /etc/shells"
+fi
+
+# required by ./AppStore
+install_command mas
 
 
