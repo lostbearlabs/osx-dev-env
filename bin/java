@@ -1,16 +1,19 @@
 #! /usr/bin/env bash
 
-set -o errexit
-set -o pipefail
-set -o nounset
 
-if [ ! `command -v sdk` ] ; then
+if [ ! -d ~/.sdkman ] ; then
    echo 'installing SDKMAN'
    curl -s "https://get.sdkman.io" | bash
    source "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh"
    # TODO: need to update .bashrc
    echo "REMEMBER TO UPDATE BASHRC TO CALL .sdkman/bin/sdkman-init.sh"
 fi
+
+source "/Users/eric.johnson/.sdkman/bin/sdkman-init.sh"
+
+set -o errexit
+set -o pipefail
+set -o nounset
 
 sdk install java 11.0.1-open
 sdk install java 8.0.191-oracle

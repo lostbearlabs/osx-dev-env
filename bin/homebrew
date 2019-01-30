@@ -61,5 +61,7 @@ install_command wget
 
 cask_install pdflatex mactex
 
+# required by ./AppStore
+install_command mas
 
 
