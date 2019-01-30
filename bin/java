@@ -7,7 +7,7 @@ set -o nounset
 if [ ! `command -v sdk` ] ; then
    echo 'installing SDKMAN'
    curl -s "https://get.sdkman.io" | bash
-   source "/Users/eric.johnson/.sdkman/bin/sdkman-init.sh"
+   source "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh"
    # TODO: need to update .bashrc
    echo "REMEMBER TO UPDATE BASHRC TO CALL .sdkman/bin/sdkman-init.sh"
 fi
