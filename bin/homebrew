@@ -64,4 +64,5 @@ cask_install pdflatex mactex
 # required by ./AppStore
 install_command mas
 
+install_command ant
 
