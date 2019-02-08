@@ -13,6 +13,6 @@ else
    echo 'rvm already installed'
 fi
 
-rvm install ruby-2.4.1
-rvm --default use ruby-2.4.1
+rvm install ruby-2.6
+rvm --default use ruby-2.6
 
