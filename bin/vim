@@ -1,0 +1,5 @@
+#! /bin/bash
+
+echo "source ~/dev/osx-dev-setup/vim/vimrc" > ~/.vimrc
+
+

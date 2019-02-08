@@ -1,0 +1,32 @@
+
+" ####################
+" # file handling
+" ####################
+
+set nobackup
+set nowritebackup
+set noswapfile
+
+" ####################
+" # appearance
+" ####################
+
+set nowrap
+
+colorscheme ron 
+set background=dark
+set guifont=Monaco:h14
+
+set number
+set hlsearch
+syntax on
+
+" ####################
+" # key mapping
+" ####################
+
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
+
