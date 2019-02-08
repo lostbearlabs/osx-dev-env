@@ -1,0 +1,18 @@
+#! /usr/bin/env bash --login
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+if [ ! `command -v nvm` ] ; then
+   # set in my standard bashrc, so let's make sure it exists for the install:
+   mkdir -p $NVM_DIR
+   echo 'installing nvm'
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash 
+else
+   echo 'nvm already installed'
+fi
+
+nvm install node
+npm install -g asar
+
