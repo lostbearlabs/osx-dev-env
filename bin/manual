@@ -22,8 +22,5 @@ check '/Applications/Kaleidoscope.app' https://www.kaleidoscopeapp.com
 check '/Applications/TLA+ Toolbox.app' https://lamport.azurewebsites.net/tla/toolbox.html
 check '/Applications/JetBrains Toolbox.app' https://www.jetbrains.com/toolbox/
 check '/Applications/VMWare Fusion.app' https://my.vmware.com/
- 
- 
- 
-
+check '/Applications/Google Chrome.app' https://www.google.com/chrome/ 
 
