@@ -39,8 +39,8 @@ export PGHOST=localhost
 # git
 ###########
 
-source ~/dev/osx-dev-setup/conf/git-completion.bash
-source ~/dev/osx-dev-setup/conf/git-prompt.sh
+source ~/dev/osx-dev-env/conf/git-completion.bash
+source ~/dev/osx-dev-env/conf/git-prompt.sh
 
 alias gs='echo "status >>>"; git-checkout-branch -s; git status --short -uall; git --no-pager stash list'
 alias gp='git pull -p --quiet; gs'
@@ -104,5 +104,5 @@ PS1='\n\n-----------------------------------\n$(__git_ps1) \w$ '
 ############
 # end
 ###########
-echo "[loaded osx-dev-setup bashrc.bash]"
+echo "[loaded osx-dev-env bashrc.bash]"
 
