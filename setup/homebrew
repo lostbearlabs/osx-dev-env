@@ -65,4 +65,5 @@ cask_install pdflatex mactex
 install_command mas
 
 install_command ant
+install_command git 
 
