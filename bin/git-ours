@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+# During a merge, checkout our (or their) version of conflicted files matching
+# a pattern.
+#
+# Usage:
+# $> git-ours
+#
+puts 'File name should contain [.iml]?'
+name = gets().strip
+name = '.iml' if name.empty?
+
+puts 'ours or theirs [ours]?'
+ours = gets().strip
+ours = 'ours' if ours.empty?
+
+files = `git diff --name-only --diff-filter=U`
+files = files.split("\n")
+files = files.select { |file| file.include?(name) }
+
+if files.empty?
+  puts 'no matching, conflicted files found'
+  exit(0)
+end
+
+files.each do |file|
+  puts " ... #{file}"
+  `git checkout --#{ours} "#{file}"`
+end
+
+

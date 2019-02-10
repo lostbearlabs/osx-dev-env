@@ -7,6 +7,7 @@
 # ~/.profile
 ###########k
 
+export PATH=~/dev/osx-dev-env/bin:$PATH
 
 ############
 # NVM 

@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# This script removes local files not commited to git, with
+# the exception of our standard project files and local properties.
+#
+
+git clean -fdx \
+ -e "/.idea/" \
+ -e "**/*.iml" \
+ -e "**/.metadata/" \
+ -e "**/.project" \
+ -e "**/.classpath" \
+ -e "**/.settings/" \
+ -e "/pro_core/conf/conf_local.properties" \
+ -e "/pro_core/conf/conf_local.groovy" \
+ -e "/gradle.properties"
+
+

@@ -1,0 +1,136 @@
+#!/usr/bin/env ruby
+
+# This script lists git branches and allows you to select one to checkout.
+#
+# Assumptions:
+#   You are in a git repo.
+#
+# Usage:
+#   gitc [-r] [filter] [-s]
+#
+#   -r: Check remote branches
+#   filter: Pare down options by matching on a part of the branch nameA
+#
+#   -s: Just list branches, don't prompt for checkout
+#
+class Branch
+  attr_accessor :name
+  attr_accessor :selected
+  attr_accessor :remote_status
+
+  def initialize(text)
+    self.name = text.gsub(%r{^\*?\s+(remotes/)?(origin/)?}, '').split()[0]
+    self.selected = text.start_with?('* ')
+
+    self.remote_status = nil
+    text.match(/\[(.*)\]/) do |m|
+      self.remote_status = m[1]
+    end
+  end
+end
+
+def get_branches(check_remotes, filter)
+  git_command = 'git branch -vv '
+  git_command += '-a ' if check_remotes
+  git_command += "| grep '#{filter}'" unless filter.nil?
+
+  git_branch_output = `#{git_command}`.rstrip
+  git_branches = git_branch_output.split(/\n/)
+  git_branches.map { |b| Branch.new(b) }
+end
+
+def print_branch(branch, i, just_show)
+  index = just_show ? '' : "#{i}) "
+  selected = branch.selected ? '* ' : '  '
+  puts "#{index}#{selected}#{branch.name}"
+  if branch.remote_status
+    num_spaces = index.length + selected.length
+    prefix = ' ' * num_spaces
+    puts "#{prefix} -> #{branch.remote_status}"
+  end
+
+end
+
+def print_branches(git_branches, just_show)
+  git_branches.each_with_index do |branch, i|
+    print_branch(branch, i, just_show)
+  end
+  puts 'q) exit without checking out a branch' unless just_show
+end
+
+##########################
+# Main script
+##########################
+
+# parse arguments
+check_remotes = false
+filter = nil
+just_show = false
+
+ARGV.each do |arg|
+  if arg == '-r'
+    puts 'Fetching all remote branches'
+    `git fetch -p --all > /dev/null 2>&1`.rstrip
+    puts '-----'
+    check_remotes = true
+  elsif arg == '-s'
+    just_show = true
+  else
+    filter = arg
+  end
+end
+
+
+loop do
+  # get branches
+  git_branches = get_branches(check_remotes, filter)
+
+  # no branches found. exit
+  abort('No branches found') if git_branches.empty?
+
+  puts 'Select branch to checkout (or d# to delete): ' unless just_show
+
+  # print branches
+  print_branches(git_branches, just_show)
+
+  # are we done?
+  exit if just_show
+
+  # get user selection
+  print 'option: '
+  user_input = STDIN.gets.chomp
+  exit if user_input == 'q'
+  deleteSoft = user_input.start_with?('d')
+  deleteHard = user_input.start_with?('D')
+  change = user_input.start_with?('c')
+
+  selected_branch_index = user_input.delete('d').delete('D').to_i
+  selected_branch_name = git_branches[selected_branch_index].name
+  abort('INVALID SELECTION') if selected_branch_name.nil?
+
+  if deleteSoft
+    # delete a branch and continue
+    puts "deleting '#{selected_branch_name}'"
+    puts '-----'
+    `git branch -d '#{selected_branch_name}'`
+  elsif deleteHard
+    # delete a branch and continue
+    puts "DELETING '#{selected_branch_name}'"
+    puts '-----'
+    `git branch -D '#{selected_branch_name}'`
+  elsif change
+    # select a branch and do not exit
+    puts "Checking out '#{selected_branch_name}'"
+    puts '-----'
+    `git checkout '#{selected_branch_name}'`
+  else
+    # select a branch and exit
+    puts "Checking out '#{selected_branch_name}'"
+    puts '-----'
+    `git checkout '#{selected_branch_name}'`
+    exit
+  end
+
+end
+
+
