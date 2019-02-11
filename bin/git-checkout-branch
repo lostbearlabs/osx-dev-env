@@ -104,7 +104,7 @@ loop do
   deleteHard = user_input.start_with?('D')
   change = user_input.start_with?('c')
 
-  selected_branch_index = user_input.delete('d').delete('D').to_i
+  selected_branch_index = user_input.delete('d').delete('D').delete('c').to_i
   selected_branch_name = git_branches[selected_branch_index].name
   abort('INVALID SELECTION') if selected_branch_name.nil?
 

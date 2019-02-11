@@ -1,0 +1,4 @@
+
+# ignore IntelliJ/RubyMine state
+.idea
+
