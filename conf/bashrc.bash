@@ -81,13 +81,6 @@ source /Users/$(whoami)/.rvm/scripts/rvm
 
 [[ -s "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh"
 
-sdk use java 1.8.0_181
-alias j8='sdk use java 1.8.0_181'
-alias j11='sdk use java jdk-11+28'
-
-# NOTE: to use a custom version install manually and then say:
-# sdk install java 1.8.0_181 /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
-
 
 ##########
 # java
