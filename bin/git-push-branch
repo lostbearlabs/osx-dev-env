@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+# git push branch (sets upstream)
+# (Optionally, push all ancestors too)
+#
+# Usage:
+#  $> git-push-branch
+#  $> git-push-branch -R
+
+require_relative('./git-helpers.rb')
+
+recursive = (ARGV[0] == '-r' || ARGV[0] == '-R')
+
+list = get_ancestors(true)
+list = [ list[-1] ] unless recursive
+
+list.each do |branch|
+  next if root_branch?(branch) && recursive
+
+  announce("push branch #{branch}")
+  `git checkout #{branch}`
+  `git push --set-upstream origin #{branch}`
+end
+

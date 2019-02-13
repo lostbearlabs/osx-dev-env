@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+# This script removes local branches that have been merged or
+# that are tagged with other user names.  (The later case is to
+# cover branches that have been checked out to do pull requests
+# but which might not yet be merged).
+#
+# Assumptions:
+#   You are in a git repo.
+#
+# Usage:
+#   git-clean-branches
+
+require_relative('./git-helpers.rb')
+
+def line_to_branch(line)
+  line.sub(/^[* ]+/, '').sub(/( \r\n)+$/, '').split(' ')[0]
+end
+
+def branch_not_wanted(line)
+  branch = line_to_branch(line)
+
+  current = line.start_with?('*')
+  root = root_branch?(branch)
+  gone = line.include?(': gone')
+
+
+  mine = branch.start_with?('eric.johnson/')
+
+  !current && !root && (gone || !mine)
+end
+
+def delete_single_branch(branch)
+  puts " ... delete branch: #{branch}"
+  if system("git branch -D #{branch} > /dev/null")
+    clear_parent_branch(branch)
+  else
+    puts "... FAILED TO DELETE BRANCH: #{branch}"
+  end
+end
+
+def delete_branches
+  `git fetch -p --all > /dev/null 2>&1`
+
+  list = `git branch -vv`.split(/[\r\n]/)
+  # puts "list: #{list}"
+
+  discard = list.select { |x| branch_not_wanted(x) }
+  discard = discard.map { |x| line_to_branch(x) }
+  # puts "discard: #{discard}"
+
+  abort(' ... NO OLD BRANCHES FOUND') unless discard.any?
+  discard.each do |branch|
+    delete_single_branch(branch)
+  end
+end
+
+##########################
+# main script starts here
+##########################
+
+delete_branches

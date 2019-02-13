@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+
+require_relative('./git-helpers.rb')
+
+unless ARGV[0]
+  puts 'Usage: git-set-merge-ticket <PL-12345>'
+  exit
+end
+
+current_branch = git_current_branch
+merge_ticket = ARGV[0]
+set_merge_ticket(current_branch, merge_ticket)
+
+puts "merge ticket set to #{lookup_merge_ticket}"

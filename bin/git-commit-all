@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+# Commit all staged changes, prefixing the specified commit message with
+# the current JIRA ticket (as extracted from the branch name)
+#
+# Usage:
+#  $> git-commit-all 'Implemented the fizz-buzz algorithm'
+#
+
+require_relative('./git-helpers.rb')
+
+unless ARGV[0]
+  puts 'Usage: git-commit-all <description>'
+  exit
+end
+
+description = ARGV[0]
+ticket = git_current_ticket_or_nil
+
+if ticket.nil?
+  puts "description: #{description}"
+  puts "ticket: n/a"
+  `git commit -a -m "#{description}"`
+else
+  puts "description: #{description}"
+  puts "ticket: #{ticket}"
+  `git commit -a -m "#{ticket} #{description}"`
+end
+
