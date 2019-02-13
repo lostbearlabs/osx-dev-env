@@ -1,3 +1,4 @@
+#@IgnoreInspection BashAddShebang
 
 ############
 # This is my master bashrc file.
@@ -97,6 +98,8 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 PS1='\n\n-----------------------------------\n$(__git_ps1) \w$ '
 
+# run a script to make sure no extra configuration has crept into our dotfiles
+check-dotfiles
 
 ############
 # end
