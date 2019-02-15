@@ -31,6 +31,7 @@ export PATH=~/dev/go/bin:$PATH
 ###########
 
 export ANT_OPTS="-Xmx1024m -Xms512m"
+alias gw="./gradlew"
 
 ############
 # postgres 
