@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+# Assign a parent branch to the current branch.
+#
+# Use this to assign a parent to branches that were not created with
+# git-create-branch or to change the parent branch when your work is
+# re-targeted.
+#
+# The assigned parent branch is used by 'git-merge-parent', 'git-merge-tree',
+# and 'git-pull-request'.
+#
+# Usage:
+# $> git checkout my-branch
+# $> git-set-parent parent-branch
+#
+require_relative('./git-helpers.rb')
+
+unless ARGV[0]
+  puts 'Usage: git-set-parent <parent branch>'
+  exit
+end
+
+current_branch = git_current_branch
+parent_branch = ARGV[0]
+set_parent_branch(current_branch, parent_branch)
+
+puts "parent branch set to #{lookup_parent_branch}"

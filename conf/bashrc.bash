@@ -1,3 +1,4 @@
+#@IgnoreInspection BashAddShebang
 
 ############
 # This is my master bashrc file.
@@ -15,6 +16,9 @@ export PATH=~/dev/osx-dev-env/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm" 
 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 ############
 # golang
 ############
@@ -27,6 +31,7 @@ export PATH=~/dev/go/bin:$PATH
 ###########
 
 export ANT_OPTS="-Xmx1024m -Xms512m"
+alias gw="./gradlew"
 
 ############
 # postgres 
@@ -80,13 +85,6 @@ source /Users/$(whoami)/.rvm/scripts/rvm
 
 [[ -s "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh"
 
-sdk use java 1.8.0_181
-alias j8='sdk use java 1.8.0_181'
-alias j11='sdk use java jdk-11+28'
-
-# NOTE: to use a custom version install manually and then say:
-# sdk install java 1.8.0_181 /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
-
 
 ##########
 # java
@@ -100,6 +98,8 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 PS1='\n\n-----------------------------------\n$(__git_ps1) \w$ '
 
+# run a script to make sure no extra configuration has crept into our dotfiles
+check-dotfiles
 
 ############
 # end

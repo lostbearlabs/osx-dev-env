@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+# Merge the parent branch into the current branch.
+# (Optionally, merge all the way down from the root branch.)
+#
+# Requires that the branch have its parent set, either implicitly when
+# created via 'git-create-branch' or git-create-pl-branch' or explicitly
+# when set via 'git-set-parent'
+#
+# Usage:
+# $> git-merge-parent
+# $> git-merge-parent -R
+#
+
+require_relative('./git-helpers.rb')
+
+################
+# main script
+################
+
+
+recursive = (ARGV[0] == '-r' || ARGV[0] == '-R')
+puts "recursive: #{recursive}"
+list = get_ancestors(recursive)
+puts "found: #{list}"
+
+parent = nil
+list.each do |branch|
+  announce "checkout and pull #{branch}"
+  `git checkout #{branch}`
+  `git pull -p`
+  unless parent.nil?
+    announce "merge from #{parent}"
+    `git merge --strategy=recursive --strategy-option=patience --strategy-option=ignore-space-change  #{parent}`
+  end
+  parent = branch
+end
+
