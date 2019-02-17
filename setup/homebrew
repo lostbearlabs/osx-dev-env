@@ -59,11 +59,12 @@ install_app /Applications/MacVim.app macvim
 install_command tree 
 install_command wget 
 
-cask_install pdflatex mactex
 
 # required by ./AppStore
 install_command mas
 
 install_command ant
 install_command git 
+
+cask_install pdflatex mactex
 
