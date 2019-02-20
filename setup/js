@@ -4,6 +4,11 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+if [ ! `command -v brew` ] ; then
+   echo "homebrew required (to install yarn);  run ./homebrew before ./js"
+   exit
+fi
+
 if [ ! `command -v nvm` ] ; then
    # set in my standard bashrc, so let's make sure it exists for the install:
    mkdir -p $NVM_DIR
@@ -15,4 +20,8 @@ fi
 
 nvm install node
 npm install -g asar
+
+brew install yarn --ignore-dependencies
+
+
 
