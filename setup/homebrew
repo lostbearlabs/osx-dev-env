@@ -13,6 +13,15 @@ function install_command() {
   fi
 }
 
+function install_command_2() {
+  if [ ! `command -v $1` ] ; then
+    echo "Installing $2"
+    brew install $2 
+  else
+    echo "Already installed: $1"
+  fi
+}
+
 function install_app() {
   if [ ! -e "$1" ] ; then
     echo "Installing $1 via $2"
@@ -54,7 +63,7 @@ echo
 
 install_command cloc 
 install_command jq 
-install_app /Applications/MacVim.app macvim
+install_command_2 mvim macvim
 
 install_command tree 
 install_command wget 
@@ -66,5 +75,8 @@ install_command mas
 install_command ant
 install_command git 
 
+install_command terraform
+
 cask_install pdflatex mactex
+
 
