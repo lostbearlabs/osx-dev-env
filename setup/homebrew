@@ -75,7 +75,7 @@ install_command mas
 install_command ant
 install_command git 
 
-install_command terraform
+install_command lnav
 
 cask_install pdflatex mactex
 
