@@ -79,4 +79,6 @@ install_command lnav
 
 cask_install pdflatex mactex
 
+# ruby needs this:
+brew install libyaml
 
