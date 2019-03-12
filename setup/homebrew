@@ -77,6 +77,8 @@ install_command git
 
 install_command lnav
 
+# for TLA+ Toolbox to generate PDFs and state diagrams
+install_command graphviz
 cask_install pdflatex mactex
 
 # ruby needs this:
