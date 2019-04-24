@@ -48,7 +48,7 @@ export PGHOST=localhost
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 
-alias gs='echo "status >>>"; git status --short -uall; git --no-pager stash list'
+alias gs=git-status
 alias gpd='git pull -p --quiet; gs'
 alias gf='git fetch -p --all --quiet; gs'
 alias gk='git difftool'
