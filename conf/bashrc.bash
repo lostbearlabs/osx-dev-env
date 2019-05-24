@@ -27,11 +27,14 @@ export GOPATH=~/dev/go
 export PATH=~/dev/go/bin:$PATH
 
 ############
-# java / core
+# java
 ###########
 
 export ANT_OPTS="-Xmx1024m -Xms512m"
-alias gw="./gradlew"
+# TODO: configure-on-demand not yet working with native libs?
+# alias gw="./gradlew --parallel --configure-on-demand"
+alias gw="./gradlew --parallel"
+alias gw-rerun="./gradlew --no-daemon --rerun-tasks"
 
 ############
 # postgres 
