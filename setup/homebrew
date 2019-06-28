@@ -84,3 +84,4 @@ cask_install pdflatex mactex
 # ruby needs this:
 brew install libyaml
 
+install_command2 stack haskell-stack
