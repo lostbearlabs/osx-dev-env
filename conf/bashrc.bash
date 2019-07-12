@@ -96,6 +96,12 @@ source /Users/$(whoami)/.rvm/scripts/rvm
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 ############
+# homebrew 
+############
+
+export PATH=/usr/local/sbin:$PATH
+
+############
 # shell 
 ############
 
