@@ -120,6 +120,10 @@ check-dotfiles
 
 source ~/.ghcup/env
 
+# see:
+# https://docs.haskellstack.org/en/stable/README/
+export PATH=$PATH:~/.local/bin
+
 ############
 # end
 ###########

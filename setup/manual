@@ -19,10 +19,10 @@ check '/Applications/iTerm.app' https://www.iterm2.com
 check '/Applications/Alfred 3.app' https://www.alfredapp.com
 check '/Applications/CleanMyMac X.app' https://macpaw.com/cleanmymac
 check '/Applications/Kaleidoscope.app' https://www.kaleidoscopeapp.com
-check '/Applications/TLA+ Toolbox.app' https://lamport.azurewebsites.net/tla/toolbox.html
+# check '/Applications/TLA+ Toolbox.app' https://lamport.azurewebsites.net/tla/toolbox.html
 check '/Applications/JetBrains Toolbox.app' https://www.jetbrains.com/toolbox/
-check '/Applications/VMWare Fusion.app' https://my.vmware.com/
+# check '/Applications/VMWare Fusion.app' https://my.vmware.com/
 check '/Applications/Google Chrome.app' https://www.google.com/chrome/ 
-check '/Applications/Notable.app' https://github.com/notable/notable/releases
-check '~/.ghcup/bin/ghci' https://www.haskell.org/ghcup/
-
+# check '/Applications/Notable.app' https://github.com/notable/notable/releases
+check '$HOME/.ghcup/bin/ghci' https://www.haskell.org/ghcup/
+check '/usr/local/bin/stack' https://docs.haskellstack.org/en/stable/README/
