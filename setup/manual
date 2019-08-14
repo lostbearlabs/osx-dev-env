@@ -24,4 +24,5 @@ check '/Applications/JetBrains Toolbox.app' https://www.jetbrains.com/toolbox/
 check '/Applications/VMWare Fusion.app' https://my.vmware.com/
 check '/Applications/Google Chrome.app' https://www.google.com/chrome/ 
 check '/Applications/Notable.app' https://github.com/notable/notable/releases
+check '~/.ghcup/bin/ghci' https://www.haskell.org/ghcup/
 

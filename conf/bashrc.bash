@@ -110,6 +110,16 @@ PS1='\n\n-----------------------------------\n$(__git_ps1) \w$ '
 # run a script to make sure no extra configuration has crept into our dotfiles
 check-dotfiles
 
+
+############
+# Haskell 
+############
+
+# see:
+# https://gitlab.haskell.org/haskell/ghcup/blob/master/README.md#manual-install
+
+source ~/.ghcup/env
+
 ############
 # end
 ###########
