@@ -17,6 +17,12 @@ end
 description = ARGV[0]
 ticket = git_current_ticket_or_nil
 
+formatters = Dir.glob("**/*Formatter.xml")
+unless formatters.empty?
+  puts "found formatter, running spotless"
+  `./gradlew spotlessApply`
+end
+
 if ticket.nil?
   puts "description: #{description}"
   puts "ticket: n/a"
