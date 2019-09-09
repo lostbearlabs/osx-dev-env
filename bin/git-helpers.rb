@@ -10,6 +10,11 @@ require 'yaml'
 # git helpers
 ##################
 
+def git_remote_repo_name
+  foo = `git config --get remote.origin.url`
+  foo.chomp.split('/')[-1]
+end
+
 # name of the currently checked-out branch
 def git_current_branch
   `git rev-parse --abbrev-ref HEAD`.rstrip
