@@ -1,23 +1,18 @@
-#@IgnoreInspection BashAddShebang
-
 ############
-# This is my master bashrc file.
-# It is sourced from the (otherwise-empty) files:
-# ~/.bashrc
-# ~/.bash_profile
-# ~/.profile
+# This is my master zshrc file.
+# It is sourced from the (otherwise-empty) file:
+# ~/.zshrc
 ###########k
 
 export PATH=~/dev/osx-dev-env/bin:$PATH
 
 ############
-# NVM 
+# NVM
 ############
 
-export NVM_DIR="$HOME/.nvm" 
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+#
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ############
 # golang
@@ -37,7 +32,7 @@ alias gw="./gradlew --parallel"
 alias gw-rerun="./gradlew --no-daemon --rerun-tasks"
 
 ############
-# postgres 
+# postgres
 ###########
 
 export PATH=/usr/local/bin:$PATH
@@ -51,7 +46,7 @@ export PGHOST=localhost
 export PATH="/Applications/Racket v7.7/bin":$PATH
 
 ############
-# rust 
+# rust
 ############
 
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -59,9 +54,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ############
 # git
 ###########
-
-source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/etc/bash_completion.d/git-prompt.sh
 
 alias gs=git-status
 alias gpd='git pull -p --quiet; gs'
@@ -80,18 +72,11 @@ alias gcf=git-conflicted
 
 
 ############
-# vim 
+# vim
 ###########
 
 # enable colors in vim at the terminal
 export TERM=xterm-color vim
-
-############
-# RVM
-############
-
-source /Users/$(whoami)/.rvm/scripts/rvm
-
 
 ##########
 # java
@@ -100,23 +85,36 @@ source /Users/$(whoami)/.rvm/scripts/rvm
 export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
 
 ############
-# homebrew 
+# homebrew
 ############
 
 export PATH=/usr/local/sbin:$PATH
 
 ############
-# shell 
+# shell
 ############
 
-PS1='\n\n-----------------------------------\n$(__git_ps1) \w$ '
+PROMPT="
+
+-----------------------------------
+%~$ "
+
+# from: https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
+zstyle ':vcs_info:*' enable git
+
 
 # run a script to make sure no extra configuration has crept into our dotfiles
 check-dotfiles
 
 
 ############
-# Haskell 
+# Haskell
 ############
 
 # see:
@@ -131,5 +129,5 @@ export PATH=$PATH:~/.local/bin
 ############
 # end
 ###########
-echo "[loaded osx-dev-env bashrc.bash]"
+echo "[loaded osx-dev-env zshrc.zsh]"
 

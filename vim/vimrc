@@ -22,6 +22,12 @@ set hlsearch
 syntax on
 
 " ####################
+" # Alerts 
+" ####################
+
+set belloff=all
+
+" ####################
 " # key mapping
 " ####################
 
