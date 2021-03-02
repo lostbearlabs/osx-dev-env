@@ -63,7 +63,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 
-alias gs=git-status
+export PATH=~/dev/gonzo/target/debug/gonzo:$PATH
+alias gs=`gonzo status`
 alias gpd='git pull -p --quiet; gs'
 alias gf='git fetch -p --all --quiet; gs'
 alias gk='git difftool'

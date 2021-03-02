@@ -1,8 +1,0 @@
-#! /bin/bash
-
-columns=$(tput cols)
-
-git branch -vv | cut -c-$columns
-echo "-------"
-git status --short -uall
-git --no-pager stash list

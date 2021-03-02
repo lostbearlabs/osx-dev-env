@@ -55,7 +55,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # git
 ###########
 
-alias gs=git-status
+export PATH=~/dev/gonzo/target/debug/gonzo:$PATH
+alias gs='gonzo status'
 alias gpd='git pull -p --quiet; gs'
 alias gf='git fetch -p --all --quiet; gs'
 alias gk='git difftool'
@@ -125,6 +126,12 @@ source ~/.ghcup/env
 # see:
 # https://docs.haskellstack.org/en/stable/README/
 export PATH=$PATH:~/.local/bin
+
+############
+# Command-line aliases for apps
+############
+
+alias tt='open -a Textastic "$@"'
 
 ############
 # end
