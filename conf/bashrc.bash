@@ -64,7 +64,7 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 
 export PATH=~/dev/gonzo/target/debug/gonzo:$PATH
-alias gs=`gonzo status`
+alias gs=git-status
 alias gpd='git pull -p --quiet; gs'
 alias gf='git fetch -p --all --quiet; gs'
 alias gk='git difftool'
