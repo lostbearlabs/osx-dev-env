@@ -115,25 +115,6 @@ check-dotfiles
 
 
 ############
-# Haskell
-############
-
-# see:
-# https://gitlab.haskell.org/haskell/ghcup/blob/master/README.md#manual-install
-
-source ~/.ghcup/env
-
-# see:
-# https://docs.haskellstack.org/en/stable/README/
-export PATH=$PATH:~/.local/bin
-
-############
-# Command-line aliases for apps
-############
-
-alias tt='open -a Textastic "$@"'
-
-############
 # end
 ###########
 echo "[loaded osx-dev-env zshrc.zsh]"

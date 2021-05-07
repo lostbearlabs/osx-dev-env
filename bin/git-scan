@@ -30,7 +30,7 @@ def check_dir(dir)
   Dir.chdir(dir) do
     changes = find_changes(dir)
     unless changes.empty?
-      puts "#{dir}:"
+      puts "#{dir}  (#{changes.length} files):"
       changes.each { |file| puts "   #{file}"}
     end
   end

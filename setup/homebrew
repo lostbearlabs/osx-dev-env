@@ -54,7 +54,7 @@ if [ ! `command -v brew` ] ; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   echo "Tapping cask"
-  brew tap caskroom/cask
+  brew tap homebrew/cask
 else 
   echo "Homebrew already installed"
 fi
@@ -77,11 +77,3 @@ install_command git
 
 install_command lnav
 
-# for TLA+ Toolbox to generate PDFs and state diagrams
-install_command graphviz
-cask_install pdflatex mactex
-
-# ruby needs this:
-brew install libyaml
-
-install_command2 stack haskell-stack
