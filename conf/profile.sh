@@ -86,6 +86,12 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
 export PATH=/usr/local/sbin:$PATH
 
 ############
+# flutter
+############
+
+export PATH=$PATH:~/dev/flutter/bin
+
+############
 # shell
 ############
 
