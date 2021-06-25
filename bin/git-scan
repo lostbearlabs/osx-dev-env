@@ -25,6 +25,10 @@ end
 
 def check_dir(dir)
   gitdir = dir + "/.git"
+
+  # known folders to ignore
+  return if dir.to_s.end_with?("/flutter")
+
   return unless Dir.exist?(gitdir)
 
   Dir.chdir(dir) do
