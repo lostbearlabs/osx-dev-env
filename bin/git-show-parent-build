@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-
-require_relative('./git-helpers.rb')
-
-branch = git_current_branch
-puts "  #{get_parent_build(branch)}"
-

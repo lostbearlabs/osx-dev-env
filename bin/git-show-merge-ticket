@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-
-# Usage:
-# $> git checkout my-branch
-# $> git-show-marge-ticket
-#
-require_relative('./git-helpers.rb')
-
-puts lookup_merge_ticket

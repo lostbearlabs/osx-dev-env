@@ -22,4 +22,5 @@ end
 check('~/.bashrc')
 check('~/.bash_profile')
 check('~/.profile')
+check('~/.zshrc')
 
