@@ -6,8 +6,8 @@
 # git-create-branch or to change the parent branch when your work is
 # re-targeted.
 #
-# The assigned parent branch is used by 'git-merge-parent', 'git-merge-tree',
-# and 'git-pull-request'.
+# The assigned parent branch is used by 'git-merge-parent' and displayed
+# in a few of the other scripts
 #
 # Usage:
 # $> git checkout my-branch

@@ -7,11 +7,11 @@
 # $> git-ours
 #
 puts 'File name should contain [.iml]?'
-name = gets().strip
+name = gets.strip
 name = '.iml' if name.empty?
 
 puts 'ours or theirs [ours]?'
-ours = gets().strip
+ours = gets.strip
 ours = 'ours' if ours.empty?
 
 files = `git diff --name-only --diff-filter=U`

@@ -19,7 +19,7 @@ class Branch
   attr_accessor :remote_status
 
   def initialize(text)
-    self.name = text.gsub(%r{^\*?\s+(remotes/)?(origin/)?}, '').split()[0]
+    self.name = text.gsub(%r{^\*?\s+(remotes/)?(origin/)?}, '').split[0]
     self.selected = text.start_with?('* ')
 
     self.remote_status = nil
@@ -100,20 +100,20 @@ loop do
   print 'option: '
   user_input = STDIN.gets.chomp
   exit if user_input == 'q'
-  deleteSoft = user_input.start_with?('d')
-  deleteHard = user_input.start_with?('D')
+  delete_soft = user_input.start_with?('d')
+  delete_hard = user_input.start_with?('D')
   change = user_input.start_with?('c')
 
   selected_branch_index = user_input.delete('d').delete('D').delete('c').to_i
   selected_branch_name = git_branches[selected_branch_index].name
   abort('INVALID SELECTION') if selected_branch_name.nil?
 
-  if deleteSoft
+  if delete_soft
     # delete a branch and continue
     puts "deleting '#{selected_branch_name}'"
     puts '-----'
     `git branch -d '#{selected_branch_name}'`
-  elsif deleteHard
+  elsif delete_hard
     # delete a branch and continue
     puts "DELETING '#{selected_branch_name}'"
     puts '-----'

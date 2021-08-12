@@ -88,7 +88,7 @@ def get_branch_info(branch)
     puts "unable to parse file #{file}"
   end
 
-  return {}
+  {}
 end
 
 def save_branch_info(branch, info)
@@ -110,7 +110,7 @@ def get_parent_branch(branch)
     puts "found branch #{branch} with UNKNOWN PARENT"
   end
 
-  return parent
+  parent
 end
 
 # for a branch, assign its parent
@@ -125,7 +125,7 @@ end
 # (returns nil if we can't look it up)
 def get_parent_build(branch)
   info = get_branch_info(branch)
-  return info['parent_build']
+  info['parent_build']
 end
 
 def set_parent_build(branch, build)
@@ -136,7 +136,7 @@ end
 
 def get_merge_ticket(branch)
   info = get_branch_info(branch)
-  return info['merge_ticket']
+  info['merge_ticket']
 end
 
 def set_merge_ticket(branch, build)
@@ -147,7 +147,7 @@ end
 
 def get_pr_message(branch)
   info = get_branch_info(branch)
-  return info['pr_message']
+  info['pr_message']
 end
 
 def set_pr_message(branch, message)
@@ -181,12 +181,12 @@ end
 # parent of the currently checked-out branch
 def lookup_parent_branch
   current_branch = git_current_branch
-  return get_parent_branch(current_branch)
+  get_parent_branch(current_branch)
 end
 
 def lookup_merge_ticket
   current_branch = git_current_branch
-  return get_merge_ticket(current_branch)
+  get_merge_ticket(current_branch)
 end
 
 # for a branch, delete the file where we've assigned its parent

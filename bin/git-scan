@@ -8,18 +8,18 @@
 
 
 # see: https://stackoverflow.com/a/2659808
-def find_changes(dir)
+def find_changes
 
-  # uncommited staged changes
+  # uncommitted staged changes
   a = `git diff-index --name-only HEAD --`.chomp.split
 
-  # uncommited changed files
+  # uncommitted changed files
   b = `git diff-files --name-only`.chomp.split
 
   # untracked, unignored files
   c = `git ls-files --exclude-standard --others`.chomp.split
 
-  return (a + b + c).uniq.sort
+  (a + b + c).uniq.sort
 
 end
 
@@ -32,7 +32,7 @@ def check_dir(dir)
   return unless Dir.exist?(gitdir)
 
   Dir.chdir(dir) do
-    changes = find_changes(dir)
+    changes = find_changes
     unless changes.empty?
       puts "#{dir}  (#{changes.length} files):"
       changes.each { |file| puts "   #{file}"}
