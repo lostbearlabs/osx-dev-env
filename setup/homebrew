@@ -63,6 +63,7 @@ echo
 
 install_command cloc 
 install_command jq 
+install_command yq
 install_command_2 mvim macvim
 
 install_command tree 
