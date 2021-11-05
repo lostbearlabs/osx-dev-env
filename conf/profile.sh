@@ -49,7 +49,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # git
 ###########
 
-export PATH=~/dev/gonzo/target/debug/gonzo:$PATH
 alias gs=git-status
 alias gpd='git pull -p --quiet; gs'
 alias gf='git fetch -p --all --quiet; gs'
@@ -84,12 +83,6 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
 ############
 
 export PATH=/usr/local/sbin:$PATH
-
-############
-# flutter
-############
-
-export PATH=$PATH:~/dev/flutter/bin
 
 ############
 # shell
