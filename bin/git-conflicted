@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-#
-# When a merge is in-flight, list only the conflicted files. 
-#
-
-`git diff --name-only --diff-filter=U`
-
-

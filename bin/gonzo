@@ -1,2 +1,0 @@
-#! /bin/sh
-~/dev/erj/gonzo/app/build/install/app/bin/app $@

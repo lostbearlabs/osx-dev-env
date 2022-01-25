@@ -55,12 +55,6 @@ alias gf='git fetch -p --all --quiet; gs'
 alias gk='git difftool'
 alias gkm='git mergetool'
 
-alias gca=git-commit-all
-alias gpu=git-push-branch
-alias gcplb=git-create-pl-branch
-
-alias gitc=git-checkout-branch
-
 alias get-commit='git rev-parse --verify HEAD'
 alias gcf=git-conflicted
 
