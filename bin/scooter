@@ -1,2 +1,0 @@
-#! /bin/sh
-~/dev/scooter/app/build/install/app/bin/app "$@"
