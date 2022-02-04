@@ -14,10 +14,6 @@
 
 PS1='\n\n-----------------------------------\n$(__git_ps1) \w$ '
 
-# run a script to make sure no extra configuration has crept into our dotfiles
-check-dotfiles
-
-
 ############
 # end
 ###########

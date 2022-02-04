@@ -83,7 +83,7 @@ export PATH=/usr/local/sbin:$PATH
 ############
 
 # run a script to make sure no extra configuration has crept into our dotfiles
-scooter check.dotfiles
+g check.dotfiles
 
 ############
 # end
