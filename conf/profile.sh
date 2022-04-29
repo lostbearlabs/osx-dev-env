@@ -4,7 +4,7 @@
 # ~/.zshrc, ~/.bashrc
 ###########k
 
-export PATH=~/dev/osx-dev-env/bin:$PATH
+export PATH=~/dev/erj/osx-dev-env/bin:$PATH
 
 ############
 # NVM
@@ -14,12 +14,6 @@ export PATH=~/dev/osx-dev-env/bin:$PATH
 #
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-############
-# golang
-############
-
-export GOPATH=~/dev/go
-export PATH=~/dev/go/bin:$PATH
 
 ############
 # java
@@ -84,6 +78,13 @@ export PATH=/usr/local/sbin:$PATH
 
 # run a script to make sure no extra configuration has crept into our dotfiles
 g check.dotfiles
+
+############
+# Textastic
+############
+
+alias tt='open -a /Applications/Textastic.app'
+
 
 ############
 # end
