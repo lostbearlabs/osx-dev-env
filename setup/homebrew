@@ -64,17 +64,8 @@ echo
 install_command cloc 
 install_command jq 
 install_command yq
-install_command_2 mvim macvim
 
 install_command tree 
 install_command wget 
 
-
-# required by ./AppStore
-install_command mas
-
-install_command ant
-install_command git 
-
-install_command lnav
 

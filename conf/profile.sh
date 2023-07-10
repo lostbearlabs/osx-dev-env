@@ -70,7 +70,7 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
 # homebrew
 ############
 
-export PATH=/usr/local/sbin:$PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ############
 # shell
