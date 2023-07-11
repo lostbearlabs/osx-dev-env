@@ -85,6 +85,10 @@ g check.dotfiles
 
 alias tt='open -a /Applications/Textastic.app'
 
+###########
+# Github
+###########
+ssh-add id_ed25519
 
 ############
 # end
