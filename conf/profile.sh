@@ -10,9 +10,8 @@ export PATH=~/dev/erj/osx-dev-env/bin:$PATH
 # NVM
 ############
 
-# export NVM_DIR="$HOME/.nvm"
-#
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
 ############
@@ -88,7 +87,10 @@ alias tt='open -a /Applications/Textastic.app'
 ###########
 # Github
 ###########
-ssh-add id_ed25519
+for file in $(ls ~/.ssh/id_* | grep -v "\.pub")
+do
+  ssh-add "$file"
+done
 
 ############
 # end
