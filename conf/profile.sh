@@ -65,6 +65,13 @@ export TERM=xterm-color vim
 
 export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
 
+
+##########
+# Haskell
+##########
+
+[ -f "/Users/eric.johnson/.ghcup/env" ] && source "/Users/eric.johnson/.ghcup/env" # ghcup-env
+
 ############
 # homebrew
 ############
