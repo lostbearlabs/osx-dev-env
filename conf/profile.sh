@@ -24,6 +24,12 @@ export ANT_OPTS="-Xmx1024m -Xms512m"
 alias gw="./gradlew --parallel"
 alias gw-rerun="./gradlew --no-daemon --rerun-tasks"
 
+alias jlist="/usr/libexec/java_home -V"
+alias j17="export JAVA_HOME=`/usr/libexec/java_home -v 17`"
+alias j21="export JAVA_HOME=`/usr/libexec/java_home -v 21`"
+
+j17
+
 ############
 # postgres
 ###########
@@ -59,11 +65,6 @@ alias gcf=git-conflicted
 # enable colors in vim at the terminal
 export TERM=xterm-color vim
 
-##########
-# java
-##########
-
-export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
 
 
 ##########
