@@ -66,13 +66,6 @@ alias gcf=git-conflicted
 export TERM=xterm-color vim
 
 
-
-##########
-# Haskell
-##########
-
-[ -f "/Users/eric.johnson/.ghcup/env" ] && source "/Users/eric.johnson/.ghcup/env" # ghcup-env
-
 ############
 # homebrew
 ############
