@@ -1,2 +1,2 @@
 #!/bin/bash
-open -a "Textastic" "$1"
+open -a "/Applications/Textastic.app" -W "$1"

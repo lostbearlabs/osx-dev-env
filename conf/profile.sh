@@ -38,11 +38,6 @@ export PATH=/usr/local/bin:$PATH
 
 export PGHOST=localhost
 
-############
-# rust
-############
-
-export PATH="$HOME/.cargo/bin:$PATH"
 
 ############
 # git
@@ -57,6 +52,7 @@ alias gkm='git mergetool'
 alias get-commit='git rev-parse --verify HEAD'
 alias gcf=git-conflicted
 
+export EDITOR=$HOME/dev/erj/osx-dev-env/bin/tt
 
 ############
 # vim
@@ -64,7 +60,6 @@ alias gcf=git-conflicted
 
 # enable colors in vim at the terminal
 export TERM=xterm-color vim
-
 
 ############
 # homebrew
@@ -78,12 +73,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # run a script to make sure no extra configuration has crept into our dotfiles
 g check.dotfiles
-
-############
-# Textastic
-############
-
-alias tt='open -a /Applications/Textastic.app'
 
 ###########
 # Github
